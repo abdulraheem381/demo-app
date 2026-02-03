@@ -9,10 +9,18 @@
   <body>
     <main class="page">
       <section class="hero">
-        <p class="badge">3-Tier Demo</p>
+        <div class="hero-top">
+          <p class="badge">3-Tier Demo</p>
+          <div class="hero-metrics" id="metrics">
+            <span class="metric"><strong>0</strong> Planning</span>
+            <span class="metric"><strong>0</strong> In Progress</span>
+            <span class="metric"><strong>0</strong> Done</span>
+          </div>
+        </div>
         <h1>Cloud Project Showcase</h1>
         <p class="subtitle">
           Track AWS projects with a simple 3-tier app: frontend, API, and database.
+          Keep notes, priority, and status in one place.
         </p>
       </section>
 
@@ -27,6 +35,24 @@
             Environment
             <input type="text" id="environment" placeholder="dev / staging / prod" />
           </label>
+          <div class="grid-two">
+            <label>
+              Status
+              <select id="status">
+                <option value="planning">Planning</option>
+                <option value="in-progress">In Progress</option>
+                <option value="done">Done</option>
+              </select>
+            </label>
+            <label>
+              Priority
+              <select id="priority">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </label>
+          </div>
           <label>
             Description
             <textarea id="description" placeholder="Short summary of the architecture..."></textarea>
@@ -38,9 +64,33 @@
       <section class="panel">
         <div class="panel-header">
           <h2>Recent Projects</h2>
-          <button id="refresh">Refresh</button>
+          <div class="panel-actions">
+            <button id="refresh" class="ghost">Refresh</button>
+          </div>
         </div>
-        <div id="status" class="status">Loading...</div>
+        <div class="filters">
+          <input type="text" id="search" placeholder="Search name or description" />
+          <select id="filter-status">
+            <option value="">All Status</option>
+            <option value="planning">Planning</option>
+            <option value="in-progress">In Progress</option>
+            <option value="done">Done</option>
+          </select>
+          <select id="filter-priority">
+            <option value="">All Priority</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+          <select id="filter-environment">
+            <option value="">All Environments</option>
+            <option value="dev">dev</option>
+            <option value="staging">staging</option>
+            <option value="prod">prod</option>
+          </select>
+          <button id="clear-filters" class="ghost">Clear</button>
+        </div>
+        <div id="status-message" class="status">Loading...</div>
         <ul id="project-list" class="list"></ul>
       </section>
     </main>

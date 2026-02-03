@@ -3,5 +3,8 @@ CREATE TABLE IF NOT EXISTS projects (
   name TEXT NOT NULL,
   description TEXT,
   environment TEXT,
-  created_at TIMESTAMPTZ DEFAULT NOW()
+  status TEXT DEFAULT 'planning',
+  priority TEXT DEFAULT 'medium',
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
 );
