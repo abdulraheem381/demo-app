@@ -30,7 +30,7 @@ jobs:
           file: ./frontend/Dockerfile
           push: true
           tags: |
-            ${{ vars.DOCKERHUB_USERNAME }}/demo-app-frontend-frontend:latest
+            ${{ vars.DOCKERHUB_USERNAME }}/demoapp-frontend:latest
             ${{ vars.DOCKERHUB_USERNAME }}/demoapp-frontend:${{ github.sha }}
           
 
