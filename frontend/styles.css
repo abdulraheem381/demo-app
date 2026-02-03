@@ -2,14 +2,15 @@
 
 :root {
   color-scheme: light;
-  --bg: #f3efe9;
-  --ink: #12110f;
-  --muted: #5e5a55;
+  --bg: #f2eee6;
+  --ink: #141312;
+  --muted: #6a655f;
   --panel: #ffffff;
   --accent: #1f5b4f;
+  --accent-2: #c06a2d;
   --accent-soft: #d9ebe6;
-  --accent-warm: #e7c9a9;
-  --border: #e2ddd5;
+  --accent-warm: #f0d5b8;
+  --border: #e4ded3;
   --shadow: rgba(22, 18, 14, 0.12);
 }
 
@@ -20,7 +21,9 @@
 body {
   margin: 0;
   font-family: "Space Grotesk", sans-serif;
-  background: radial-gradient(circle at 10% 10%, #ffffff 0%, #f4f2ef 45%, #e8e0d5 100%);
+  background:
+    radial-gradient(circle at 10% 10%, #ffffff 0%, #f4f2ef 45%, #e8e0d5 100%),
+    linear-gradient(120deg, rgba(31, 91, 79, 0.08), rgba(192, 106, 45, 0.08));
   color: var(--ink);
 }
 
@@ -31,6 +34,30 @@ body {
   display: grid;
   gap: 32px;
   position: relative;
+}
+
+.page::before,
+.page::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 999px;
+}
+
+.page::before {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(31, 91, 79, 0.12), transparent 60%);
+  top: -40px;
+  left: -40px;
+}
+
+.page::after {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(192, 106, 45, 0.12), transparent 60%);
+  bottom: -60px;
+  right: -40px;
 }
 
 .hero {
@@ -49,7 +76,7 @@ body {
   width: 280px;
   height: 280px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(47, 107, 94, 0.15), transparent 65%);
+  background: radial-gradient(circle, rgba(31, 91, 79, 0.15), transparent 65%);
   top: -120px;
   right: -80px;
 }
@@ -70,6 +97,7 @@ h1 {
   margin: 16px 0 8px;
   font-size: clamp(32px, 4vw, 44px);
   font-family: "Fraunces", serif;
+  letter-spacing: -0.01em;
 }
 
 .subtitle {
@@ -151,6 +179,7 @@ textarea {
   font-family: inherit;
   font-size: 14px;
   background: #faf9f8;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 select {
@@ -160,6 +189,7 @@ select {
   font-family: inherit;
   font-size: 14px;
   background: #faf9f8;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 textarea {
@@ -181,6 +211,10 @@ button {
 button:hover {
   transform: translateY(-1px);
   box-shadow: 0 10px 16px rgba(31, 91, 79, 0.18);
+}
+
+button:active {
+  transform: translateY(0);
 }
 
 .ghost {
@@ -210,6 +244,12 @@ button:hover {
   background: #faf9f8;
   display: grid;
   gap: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px rgba(18, 17, 15, 0.08);
 }
 
 .card h3 {
@@ -260,6 +300,11 @@ button:hover {
 .pill.priority-low {
   background: #eceff5;
   border-color: #d5deee;
+}
+
+.pill.priority-medium {
+  background: #fff1dd;
+  border-color: #f2d3a6;
 }
 
 .card-actions {
