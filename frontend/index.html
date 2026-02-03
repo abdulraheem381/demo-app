@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloud Project Showcase</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="badge">3-Tier Demo</p>
+        <h1>Cloud Project Showcase</h1>
+        <p class="subtitle">
+          Track AWS projects with a simple 3-tier app: frontend, API, and database.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2>Add a Project</h2>
+        <form id="project-form">
+          <label>
+            Project Name
+            <input type="text" id="name" placeholder="VPC + EC2 Demo" required />
+          </label>
+          <label>
+            Environment
+            <input type="text" id="environment" placeholder="dev / staging / prod" />
+          </label>
+          <label>
+            Description
+            <textarea id="description" placeholder="Short summary of the architecture..."></textarea>
+          </label>
+          <button type="submit">Save Project</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Recent Projects</h2>
+          <button id="refresh">Refresh</button>
+        </div>
+        <div id="status" class="status">Loading...</div>
+        <ul id="project-list" class="list"></ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
